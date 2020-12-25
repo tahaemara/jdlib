@@ -3,7 +3,7 @@ Java Wrapper For dlib
 
 
 ## Using Jdlib
-JAR files contains binaries of Jdlib on current supprted platforms (Linux and Mac OS X).
+JAR files contains binaries of Jdlib on current supprted platforms (Linux and Mac OS X) inside [releases](https://github.com/tahaemara/jdlib/releases).
 
 Also you can have everything downloaded and installed automatically with Maven after including the next dependency inside the pom.xml.
 
