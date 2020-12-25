@@ -1,3 +1,4 @@
+
 import com.emaraic.jdlib.Jdlib;
 import com.emaraic.utils.FaceDescriptor;
 import com.emaraic.utils.ImageUtils;
@@ -10,6 +11,11 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 /**
+ * This example based on C++ example fro http://dlib.net/face_landmark_detection_ex.cpp.html
+ * This example program shows how to find frontal human faces in an image and
+ * estimate their pose. The pose takes the form of 68 landmarks. These are
+ * points on the face such as the corners of the mouth, along the eyebrows, on
+ * the eyes, and so forth.
  *
  * @author Taha Emara 
  * Website: http://www.emaraic.com 
@@ -38,9 +44,14 @@ public class FacialLandmardsExample {
     }
 
     public static void main(String[] args) {
-        
+
         if (args.length != 2) {
-            System.err.println("Please, run code via:  java -jar JdlibExamples-1.0.0.jar path/to/shape_predictor_68_face_landmarks.dat /path/to/image");
+            System.err.println("Give the path to the trained shape predictor model as the first "
+                    + "argument and then the path to a given image.\n"
+                    + "You can execute this program by running:\n"
+                    + "     java -jar JdlibExamples-1.0.0.jar <path_to_shape_predictor_68_face_landmarks.dat> <path_to_image>\n"
+                    + "You can download a  shape predictor from:\n"
+                    + "     http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2");
         }
 
         String modelpath = args[0];
@@ -57,7 +68,7 @@ public class FacialLandmardsExample {
         }
 
         img = resize(img, 800, 800);
-        
+
         ImageUtils.showImage(img);
     }
 }
