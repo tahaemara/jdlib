@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 /**
- * This example based on C++ example fro http://dlib.net/face_landmark_detection_ex.cpp.html
+ * This example based on C++ example from http://dlib.net/face_landmark_detection_ex.cpp.html
  * This example program shows how to find frontal human faces in an image and
  * estimate their pose. The pose takes the form of 68 landmarks. These are
  * points on the face such as the corners of the mouth, along the eyebrows, on
