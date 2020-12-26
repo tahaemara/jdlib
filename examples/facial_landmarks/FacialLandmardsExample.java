@@ -54,14 +54,14 @@ public class FacialLandmardsExample {
                     + "     http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2");
         }
 
-        String modelpath = args[0];
+        String facialLandmarksModelPath = args[0];
         String imagepath = args[1];
 
-        Jdlib jdlib = new Jdlib();
+        Jdlib jdlib = new Jdlib(facialLandmarksModelPath);
 
         BufferedImage img = loadImage(imagepath);
 
-        ArrayList<FaceDescriptor> faces = jdlib.getFaceLandmarks(modelpath, img);
+        ArrayList<FaceDescriptor> faces = jdlib.getFaceLandmarks(img);
 
         for (FaceDescriptor face : faces) {
             ImageUtils.drawFaceDescriptor(img, face);
