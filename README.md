@@ -11,7 +11,7 @@ Also you can have everything downloaded and installed automatically with Maven a
 <dependency>
   <groupId>com.emaraic</groupId>
   <artifactId>jdlib</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
