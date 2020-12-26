@@ -22,7 +22,18 @@ import java.util.Locale;
  */
 public class Jdlib {
 
-    public Jdlib() {
+    private String facialLandmarksModelPath;
+    private String faceEmbeddingModelPath;
+
+    public Jdlib(String facialLandmarksModelPath, String faceEmbeddingModelPath) {
+        this.facialLandmarksModelPath = facialLandmarksModelPath;
+        this.faceEmbeddingModelPath = faceEmbeddingModelPath;
+        loadLib();
+    }
+
+    public Jdlib(String facialLandmarksModelPath) {
+        this.facialLandmarksModelPath = facialLandmarksModelPath;
+        this.faceEmbeddingModelPath = null;
         loadLib();
     }
 
@@ -47,8 +58,8 @@ public class Jdlib {
             libpath = "/native" + File.separator + "linux" + File.separator + name;
         } else if (os.contains("mac")) {
             libpath = "/native" + File.separator + "macosx" + File.separator + name;
-        }else{
-            throw new java.lang.UnsupportedOperationException(os+ " is not supported. Try to recompile Jdlib on your machine and then use it.");
+        } else {
+            throw new java.lang.UnsupportedOperationException(os + " is not supported. Try to recompile Jdlib on your machine and then use it.");
         }
 
         InputStream inputStream = null;
@@ -96,9 +107,9 @@ public class Jdlib {
         return data;
     }
 
-    public ArrayList<FaceDescriptor> getFaceLandmarks(String modelpath, BufferedImage img) {
+    public ArrayList<FaceDescriptor> getFaceLandmarks(BufferedImage img) {
         Image image = new Image(img);
-        ArrayList<FaceDescriptor> data = getFacialLandmarks(getShapePredictorHandler(modelpath), getFaceDectorHandler(), image.pixels, image.height, image.width);
+        ArrayList<FaceDescriptor> data = getFacialLandmarks(getShapePredictorHandler(facialLandmarksModelPath), getFaceDectorHandler(), image.pixels, image.height, image.width);
         if (data == null) {
             System.err.println("Jdlib | getFaceLandmarks | Null data!!");
             data = new ArrayList<>(Collections.EMPTY_LIST);
@@ -106,9 +117,13 @@ public class Jdlib {
         return data;
     }
 
-    public ArrayList<FaceDescriptor> getFaceEmbeddings(String embedmodel, String landmarksmodel, BufferedImage img) {
+    public ArrayList<FaceDescriptor> getFaceEmbeddings(BufferedImage img) {
+        if (facialLandmarksModelPath == null) {
+            throw new IllegalArgumentException("Path to face embedding model isn't provided!");
+        }
+        
         Image image = new Image(img);
-        ArrayList<FaceDescriptor> data = getFaceEmbeddings(getFaceEmbeddingHandler(embedmodel), getShapePredictorHandler(landmarksmodel), getFaceDectorHandler(), image.pixels, image.height, image.width);
+        ArrayList<FaceDescriptor> data = getFaceEmbeddings(getFaceEmbeddingHandler(faceEmbeddingModelPath), getShapePredictorHandler(facialLandmarksModelPath), getFaceDectorHandler(), image.pixels, image.height, image.width);
         if (data == null) {
             System.err.println("Jdlib | getFaceEmbeddings | Null data!!");
             data = new ArrayList<>(Collections.EMPTY_LIST);
