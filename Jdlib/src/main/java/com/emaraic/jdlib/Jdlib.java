@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 /**
  *
@@ -38,7 +39,7 @@ public class Jdlib {
     private native ArrayList<FaceDescriptor> getFaceEmbeddings(long FaceEmbeddingHandler, long shapePredictorHandler, long faceDetectorHandler, byte[] pixels, int h, int w);
 
     private void loadLib() {
-        String os = System.getProperty("os.name").toLowerCase();
+        String os = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH);
         String name = System.mapLibraryName("Jdlib");
 
         String libpath = "";
@@ -46,6 +47,8 @@ public class Jdlib {
             libpath = "/native" + File.separator + "linux" + File.separator + name;
         } else if (os.contains("mac")) {
             libpath = "/native" + File.separator + "macosx" + File.separator + name;
+        }else{
+            throw new java.lang.UnsupportedOperationException(os+ " is not supported. Try to recompile Jdlib on your machine and then use it.");
         }
 
         InputStream inputStream = null;
