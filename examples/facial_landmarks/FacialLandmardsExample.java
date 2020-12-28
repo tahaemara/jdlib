@@ -45,17 +45,8 @@ public class FacialLandmardsExample {
 
     public static void main(String[] args) {
 
-        if (args.length != 2) {
-            System.err.println("Give the path to the trained shape predictor model as the first "
-                    + "argument and then the path to a given image.\n"
-                    + "You can execute this program by running:\n"
-                    + "     java -jar JdlibExamples-1.0.0.jar <path_to_shape_predictor_68_face_landmarks.dat> <path_to_image>\n"
-                    + "You can download a  shape predictor from:\n"
-                    + "     http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2");
-        }
-
-        String facialLandmarksModelPath = args[0];
-        String imagepath = args[1];
+        String facialLandmarksModelPath = "../shape_predictor_68_face_landmarks.dat";
+        String imagepath = "../test_img/bald_guys.jpg";
 
         Jdlib jdlib = new Jdlib(facialLandmarksModelPath);
 
