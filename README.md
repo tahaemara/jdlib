@@ -16,6 +16,12 @@ Also you can have everything downloaded and installed automatically with Maven a
 ```
 
 ## Compiling Jdlib
+
+### Requirments:
+- Dlib installation requirments [Using dlib from C++](http://dlib.net/compile.html)
+- JDK 8 or latter
+- Maven
+
 ### Clone project:
 ```
 $ git clone https://github.com/tahaemara/jdlib.git
