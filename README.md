@@ -1,9 +1,9 @@
 # Jdlib
-Java Wrapper For dlib for Linux and MacOSX.
+Java Wrapper For dlib for Linux and MacOSX. Till now the wrapper contains stubs for face HOG detector, facial landmarks, face embedding models. 
 
 
 ## Demo
-
+### Face Clustering Example
 <img src="https://media.giphy.com/media/FD9AfNUw3VX8CqYaph/giphy.gif" width="700" height="400" />
 
 ## Using Jdlib
