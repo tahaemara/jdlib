@@ -1,6 +1,10 @@
 # Jdlib
-Java Wrapper For dlib
+Java Wrapper For dlib for Linux and MacOSX.
 
+
+## Demo
+
+<img src="https://media.giphy.com/media/FD9AfNUw3VX8CqYaph/giphy.gif" width="700" height="400" />
 
 ## Using Jdlib
 JAR files contains binaries of Jdlib on current supprted platforms (Linux and Mac OS X) inside [releases](https://github.com/tahaemara/jdlib/releases).
