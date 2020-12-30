@@ -46,7 +46,7 @@ $ cd ../../Jdlib
 $ mvn package
 ```
 
-After that you will have the JAR file including the binaries for your platform inside Jdlib/target. 
+After that you will have the JAR file including the binaries for your platform inside Jdlib/target. Then you can use it inside your project as an external jar or install it manually in [local maven](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html). 
 
 ## Compiling and running examples
 
