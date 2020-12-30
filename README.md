@@ -48,7 +48,7 @@ $ mvn package
 
 After that you will have the JAR file including the binaries for your platform inside Jdlib/target. 
 
-## Compiling and running Examples
+## Compiling and running examples
 
 - Download needed models to example folder
 ```
@@ -61,11 +61,11 @@ $ wget http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2
 $ bzip2 -dk shape_predictor_68_face_landmarks.dat.bz2
 $ bzip2 -dk dlib_face_recognition_resnet_model_v1.dat.bz2
 ```
-- Chnage Diectory to an example folder such as faces_clustering:
+- Change Diectory to an example folder such as faces_clustering:
 ```
 cd examples/faces_clustering/
 ```
-- Build pakcge via maven
+- Build package via maven
 ```
 mvn package
 ```
